@@ -258,13 +258,11 @@ if($postType=='submitExam')
               $runpython = exec("python $file 2>&1",$py_error, $iserror);
                 if($iserror>0){
                   $runpython = $py_error[count($py_error)-1];
-                }elseif (count($py_error)>1){
+                }/*elseif (count($py_error)>1){
                     foreach ($py_error as $key => $val) {
                       $runpython .= $val."\n";
                     }
-                  }
-    //          echo "\nEXEC:\n".$execPythonScript."\n\n";
-    //          $runpython = rtrim(shell_exec("python -c '$execPythonScript'"));
+                  }*/
               if ($runpython == $testcaseout1)
                 { $gradecomments .= "Test case for $truefuncName($newparams) passed.$testinggradevalue/$testinggradevalue~";
                   $totalgrade += $testinggradevalue;}
