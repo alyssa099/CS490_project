@@ -1,7 +1,4 @@
 <?php
-//**************CS490 Project ************
-//**************Marian Oleksy ************
-/*$input_json = file_get_contents('php://input');
 $stringrcvd = json_decode($input_json, true);*/
 $username="none";
 $password="none";
@@ -18,7 +15,7 @@ $output = str_replace("}", $login_to_NJIT_website, $login_to_database);
 
 echo $output;
 
-// function for login to any NJIT site
+
 function loginnjitscript($username, $password)
 {	$stringdata =  array("ucid"=> $username, "pass" => $password, "uuid" => "0xACA021");
 	$cookie = "cookie.txt";
@@ -41,17 +38,16 @@ function loginnjitscript($username, $password)
 		{ return "Can login to NJIT";
 	}
 }
-// function for login to database
 function loginscript($username, $password)
 { $stringdata =  array('username'=> $username, 'password' => $password);
 	$infoback = curl_init();
 	curl_setopt($infoback, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($infoback, CURLOPT_POSTFIELDS, http_build_query($stringdata));
-	curl_setopt($infoback, CURLOPT_URL,"https://web.njit.edu/~rjb57/CS490/validate.php");
+	curl_setopt($infoback, CURLOPT_URL,"https://web.njit.edu/~****/CS490/validate.php");
 	curl_setopt($infoback, CURLOPT_COOKIEJAR, realpath($cookie));
 	curl_setopt($infoback, CURLOPT_COOKIEFILE, realpath($cookie));
 	curl_setopt($infoback, CURLOPT_SSL_VERIFYPEER, false);
-	curl_setopt($infoback, CURLOPT_REFERER, "https://web.njit.edu/~rjb57/CS490/validate.php");
+	curl_setopt($infoback, CURLOPT_REFERER, "https://web.njit.edu/~****/CS490/validate.php");
 	$stringrcvd = curl_exec($infoback);
 	curl_close ($infoback);
 	return $stringrcvd;
